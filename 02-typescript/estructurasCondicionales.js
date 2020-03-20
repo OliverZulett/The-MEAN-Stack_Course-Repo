@@ -1,3 +1,4 @@
+"use strict";
 var valorCondicional = true;
 var respuesta = '';
 if (valorCondicional === true) {

@@ -14,6 +14,6 @@ console.log(total);
 
 console.timeEnd('ejecucion');
 
-Tarea:
-realizar los primeros tres ejericios de project euler
-https://projecteuler.net/archives
+// Tarea:
+// realizar los primeros tres ejericios de project euler
+// https://projecteuler.net/archives

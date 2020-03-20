@@ -1,3 +1,4 @@
+"use strict";
 var multiplos = 1;
 var total = 0;
 console.time('ejecucion');
@@ -9,3 +10,6 @@ while (multiplos < 1000) {
 }
 console.log(total);
 console.timeEnd('ejecucion');
+// Tarea:
+// realizar los primeros tres ejericios de project euler
+// https://projecteuler.net/archives

@@ -56,22 +56,3 @@ https://docs.mongodb.com/manual/reference/built-in-roles/index.html
 
 // db.updateUser()
 https://docs.mongodb.com/manual/reference/method/db.updateUser/#db-updateuser
-
-
-db.users.insert(
-   {
-       "name" : "oliver",
-       "email" : "jozulett@gmail.com",
-       "password" : "123",
-       "img" : null,
-       "role" : "ADMIN_ROLE"
-   }
-)
-
-db.users.find()
-
-db.users.find(
-    {
-        "name" : "oliver"
-    }
-)

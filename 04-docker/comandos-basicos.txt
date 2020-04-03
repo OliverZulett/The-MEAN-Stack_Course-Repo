@@ -1,0 +1,44 @@
+
+# crear un contenedor
+docker run --name <nombre-del-contendedor> <nombre de la imagen base> 
+# crear un contenedor en segundo plano
+docker run --name <nombre-del-contendedor> -d <nombre de la imagen base> 
+# crear un contenedor en segundo plano y habilitar el puerto de conexion 
+docker run --name <nombre-del-contendedor> -d -p <numero del puerto en el host>:<numero del puerto en el contenedor> <nombre de la imagen base> 
+# crear un contenedor en segundo plano, habilitar el puerto de conexion y crear una volumen para compartir archivos entre el contenedor y el sistema host
+# se pueden incluir mas volumenes o mas puertos simplemente agregando mas flags -v, -p
+docker run --name <nombre-del-contendedor> -d -p <numero del puerto en el host>:<numero del puerto en el contenedor> -v <path del host ex.: d:/docker/data/:>:<path del container ex.: /sharedData/> <nombre de la imagen base> 
+
+# listar todos los contenedores activo
+docker ps 
+# listar todos los contenedores
+docker ps -a
+# iniciar un contenedor
+docker start <id del contenedor o nombre de contenedor>
+# detener un contenedor
+docker stop <id del contenedor o nombre de contenedor>
+# ingresar al SO del contenedor:
+docker exec -it <id del contenedor o nombre de contenedor> bash
+# eliminar un contenedor
+docker rm <id del contenedor o nombre de contenedor>
+# parar todos los contenedores
+docker stop $(docker ps -a -q)
+# eliminar todos los contenedores
+docker rm $(docker ps -a -q)
+
+# descargar una imagen desde docker hub
+docker pull <nombre de la imagen>
+# listar todas las imagenes descargadas o creadas
+docker image ls
+# eliminar una imagen 
+docker image rm <nombre de la imagen>
+# crear una imagen a partir del "dockerfile"; 
+# este comando se ejecuta en la carpeta donde se encuentra el dockerfile;
+# el nombre de la imagen y la version puede ser: latest o en numeros como 0.0.1
+docker build -t <nombre de la imagen>:<version de la nueva imagen> .
+# para crear un nuevo contenedor con una imagen creada por dockerfile debemos usar el nombre de la imagen base 
+# como el nombre que le pusimos a nuestra imagen en el dockerfile, ex:
+docker run --name <nombre-del-contendedor> <nombre de la imagen que le pusimos en nuestro dockerfile> 
+
+# crear un stack de contenedores con docker-compose
+docker-compose -f <path del archivo .yml>/<archivo yml>.yml up -d

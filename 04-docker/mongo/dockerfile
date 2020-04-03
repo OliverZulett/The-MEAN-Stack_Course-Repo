@@ -1,6 +1,0 @@
-FROM mongo AS mongomod
-RUN mkdir /myvol
-RUN echo "hello world" > /myvol/greeting
-VOLUME /sharedData
-# docker build -t mongomod:latest .
-# docker run --name mongomod -v d:/mongo-vol2:/shareData -d mongomo

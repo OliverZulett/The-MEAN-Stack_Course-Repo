@@ -2,7 +2,7 @@
 version: '3.7'
 # servicios=contenedores que crearemos con docker compose
 services:
-#   primer servicio=contenedor
+  # primer servicio=contenedor
   mongo:
     # nombre del contenedor
     container_name: mongo
@@ -14,6 +14,9 @@ services:
     volumes: 
       - d:/dataFromMongo:/sharedData
       # ~/dataFromMongo:/sharedData en linux
+      # utiliza el volumen declarado como "mongodatabases" en la seccion de volumes
+      # y guarda todos los datos generados en la ruta "/data/db"
+      - mongodatabases:/data/db
     # puertos
     ports:
       - 27017:27017
@@ -21,3 +24,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
+# volumesnes declarados para su uso
+volumes:
+  # primer volumen 
+  mongodatabases:
+    # nombre del volumen
+    name: mongodatabases

@@ -42,3 +42,12 @@ docker run --name <nombre-del-contendedor> <nombre de la imagen que le pusimos e
 
 # crear un stack de contenedores con docker-compose
 docker-compose -f <path del archivo .yml>/<archivo yml>.yml up -d
+
+# crear volumenes 
+docker volume create my-vol
+# listar volumenes 
+docker volume ls
+# inspeccionamos el volumen 
+docker volume inspect my-vol
+# eliminar un  volumen 
+docker volume rm my-vol

@@ -17,6 +17,8 @@ services:
       # utiliza el volumen declarado como "mongodatabases" en la seccion de volumes
       # y guarda todos los datos generados en la ruta "/data/db"
       - mongodatabases:/data/db
+    # habilitar la autenticacion de mongo
+    command: [--auth]
     # puertos
     ports:
       - 27017:27017

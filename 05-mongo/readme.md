@@ -57,6 +57,8 @@ use <db-name>
 db.<collection>.drop()
 ```
 
+[metodos de colecciones](https://docs.mongodb.com/manual/reference/method/js-collection/)
+
 #### CRUD
 
 insertar uno o varios documentos
@@ -80,7 +82,7 @@ db.<collection>.deleteOne({<filer>})
 db.<collection>.deleteMany({<filer>})
 ```
 
-#### Queries simples
+#### Consultas simples
 
 mostrar uno o varios documentos
 ```javascript
@@ -91,10 +93,31 @@ db.<collection>.find({<filter>},{<projection>}).<agregation>()
 ```
 [filtros de busqueda](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors)
 
+#### Consultas avanzadas
 
-#### Administracion de usuarios
+**agregacion simple**
 
-crear cuanta de administrador
+| Operadores                            | Descripcion   |
+| ------------------------------------- |:-------------:|
+| db.collection.count( query, options ) </br> db.collection.find( query ).count() |[Cuenta el numero de documentos basados en una consulta](https://docs.mongodb.com/manual/reference/method/db.collection.count/)|
+| db.inventory.distinct( field ) | [Busca valores distintos de documentos de una coleccion](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/)|
+
+**agregacion por tuberia**
+
+consiste en utilizar el metodo
+```javascript
+  db.colection.aggregate( pipeline, options )
+```
+que agrega secuencia de operaciones sobre una coleccion
+estas operaciones se denominan *etapas de la tuberia de agregacion* 
+
+#### Administracion de usuarios y seguridad
+
+En una instalacion limpia de mongodb server la ejecucion del cliente de mongo *mongod* carece de seguridad por lo que es vital tomar acciones basicas de seguridad como ser: 
+1. crear una cuanta de administrador para evitar intrusiones.
+2. cada vez que creemos una nueva base de datos asingar un asuario que se encargara de la misma.
+
+crear cuenta de administrador
 ```javascript
 use admin
 db.createUser(
@@ -132,10 +155,19 @@ db.updateUser(
 
 #### Shell scripts
 
-cargar una base de datos desde un archivo .js
+En mongoDB es posible crear un conjunto de operaciones dentro de un archivo .js y ejecutar su contenido de manera dinamica (dentro o fuera de shell)
+
+Ejecutar operaciones dentro de un archivo .js desde fuera de la Shell
 
 ```javascript
-mongo <file-name>.js
+mongo path/<file-name>.js
+```
+
+Ejecutar operaciones dentro de un archivo .js desde dentro de la Shell
+
+```javascript
+use <db-name>
+db.find("path/<file-name>.js")
 ```
 
 #### references

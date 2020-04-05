@@ -38,17 +38,17 @@ db.dropDatabase()
 
 #### Colecciones
 
-mostrar todas las colecciones
-```javascript
-show collections
-```
-
 crear una coleccion
 ```javascript
 use <db-name>
-db.createCollection(<collection>)
+db.createCollection("<collection>")
 // or
 db.<collection>.insertOne({ document })
+```
+
+mostrar todas las colecciones
+```javascript
+show collections
 ```
 
 eliminar una coleccion

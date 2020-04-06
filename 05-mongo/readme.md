@@ -38,17 +38,17 @@ db.dropDatabase()
 
 #### Colecciones
 
-mostrar todas las colecciones
-```javascript
-show collections
-```
-
 crear una coleccion
 ```javascript
 use <db-name>
-db.createCollection(<collection>)
+db.createCollection("<collection>")
 // or
 db.<collection>.insertOne({ document })
+```
+
+mostrar todas las colecciones
+```javascript
+show collections
 ```
 
 eliminar una coleccion
@@ -87,9 +87,10 @@ db.<collection>.deleteMany({<filer>})
 mostrar uno o varios documentos
 ```javascript
 db.<collection>.findOne({<filter>},{<projection>})
-db.<collection>.find({<filter>},{<projection>}).<agregation>()
+db.<collection>.find({<filter>},{<projection>}).<modifier>()
 // <agregation>() = sort(), limit()
 // <projection> = {field1:1, field2:0} muestra u oculta campos de una consulta
+db.<collection>.find()
 ```
 [filtros de busqueda](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors)
 
@@ -102,14 +103,33 @@ db.<collection>.find({<filter>},{<projection>}).<agregation>()
 | db.collection.count( query, options ) </br> db.collection.find( query ).count() |[Cuenta el numero de documentos basados en una consulta](https://docs.mongodb.com/manual/reference/method/db.collection.count/)|
 | db.inventory.distinct( field ) | [Busca valores distintos de documentos de una coleccion](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/)|
 
+[comandos de agegacion](https://docs.mongodb.com/manual/reference/command/nav-aggregation/)
+
 **agregacion por tuberia**
 
-consiste en utilizar el metodo
+consiste en utilizar el [metodo](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#db.collection.aggregate)
 ```javascript
   db.colection.aggregate( pipeline, options )
 ```
 que agrega secuencia de operaciones sobre una coleccion
-estas operaciones se denominan *etapas de la tuberia de agregacion* 
+estas operaciones se denominan [*etapas de la tuberia de agregacion*](https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/#aggregation-pipeline-stages)
+
+#### Shell scripts
+
+En mongoDB es posible crear un conjunto de operaciones dentro de un archivo .js y ejecutar su contenido de manera dinamica (dentro o fuera de shell)
+
+Ejecutar operaciones dentro de un archivo .js desde fuera de la Shell
+
+```javascript
+mongo path/<file-name>.js
+```
+
+Ejecutar operaciones dentro de un archivo .js desde dentro de la Shell
+
+```javascript
+use <db-name>
+db.find("path/<file-name>.js")
+```
 
 #### Administracion de usuarios y seguridad
 
@@ -151,23 +171,6 @@ db.updateUser(
      ]
    }
 )
-```
-
-#### Shell scripts
-
-En mongoDB es posible crear un conjunto de operaciones dentro de un archivo .js y ejecutar su contenido de manera dinamica (dentro o fuera de shell)
-
-Ejecutar operaciones dentro de un archivo .js desde fuera de la Shell
-
-```javascript
-mongo path/<file-name>.js
-```
-
-Ejecutar operaciones dentro de un archivo .js desde dentro de la Shell
-
-```javascript
-use <db-name>
-db.find("path/<file-name>.js")
 ```
 
 #### references

@@ -1,11 +1,13 @@
-# Comandos basicos 
+# Comandos basicos
 
 ingresar a mongodb
+
 ```javascript
 mongo -u <user-name> -p <password> --authenticationDatabase <db-name>
 ```
 
 salir de mongodb
+
 ```javascript
 1. exit
 2. quit()
@@ -14,31 +16,35 @@ salir de mongodb
 #### Base de datos
 
 listar todas las bases de datos
+
 ```javascript
 show dbs
 ```
 
 crear base de datos
+
 ```javascript
 use <db-name>
-// es necesario insertar al menos un documento para 
+// es necesario insertar al menos un documento para
 // guaradar la base de datos
 ```
 
 mostrar la base de datos actual
+
 ```javascript
-db
+db;
 ```
 
 eliminar base de datos
+
 ```javascript
-use <db-name>
-db.dropDatabase()
+use < db - name > db.dropDatabase();
 ```
 
 #### Colecciones
 
 crear una coleccion
+
 ```javascript
 use <db-name>
 db.createCollection("<collection>")
@@ -47,11 +53,13 @@ db.<collection>.insertOne({ document })
 ```
 
 mostrar todas las colecciones
+
 ```javascript
 show collections
 ```
 
 eliminar una coleccion
+
 ```javascript
 use <db-name>
 db.<collection>.drop()
@@ -62,21 +70,24 @@ db.<collection>.drop()
 #### CRUD
 
 insertar uno o varios documentos
+
 ```javascript
 db.<collection>.insertOne({ document })
 // or
 db.<collection>.insertMany([{ document 1 },{ document 2 },...])
-// or 
+// or
 db.<collection>.insert( documentos )
 ```
 
 actualizar uno o varios documentos
+
 ```javascript
-// el parametro upsert define que de no encontrarse el documento a actualizar upsert : true lo creara y upsert : false no 
+// el parametro upsert define que de no encontrarse el documento a actualizar upsert : true lo creara y upsert : false no
 db.<collection>.udpate({<filer>}, {$set:{ <update document>} }, {upsert: true o false})
 ```
 
 eliminar uno o varios documentos
+
 ```javascript
 db.<collection>.deleteOne({<filer>})
 db.<collection>.deleteMany({<filer>})
@@ -85,6 +96,7 @@ db.<collection>.deleteMany({<filer>})
 #### Consultas simples
 
 mostrar uno o varios documentos
+
 ```javascript
 db.<collection>.findOne({<filter>},{<projection>})
 db.<collection>.find({<filter>},{<projection>}).<modifier>()
@@ -92,27 +104,39 @@ db.<collection>.find({<filter>},{<projection>}).<modifier>()
 // <projection> = {field1:1, field2:0} muestra u oculta campos de una consulta
 db.<collection>.find()
 ```
+
 [filtros de busqueda](https://docs.mongodb.com/manual/reference/operator/query/#query-selectors)
 
 #### Consultas avanzadas
 
 **agregacion simple**
 
-| Operadores                            | Descripcion   |
-| ------------------------------------- |:-------------:|
-| db.collection.count( query, options ) </br> db.collection.find( query ).count() |[Cuenta el numero de documentos basados en una consulta](https://docs.mongodb.com/manual/reference/method/db.collection.count/)|
-| db.inventory.distinct( field ) | [Busca valores distintos de documentos de una coleccion](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/)|
+| Operadores                                                                      |                                                            Descripcion                                                             |
+| ------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------: |
+| db.collection.count( query, options ) </br> db.collection.find( query ).count() |  [Cuenta el numero de documentos basados en una consulta](https://docs.mongodb.com/manual/reference/method/db.collection.count/)   |
+| db.inventory.distinct( field )                                                  | [Busca valores distintos de documentos de una coleccion](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/) |
 
 [comandos de agegacion](https://docs.mongodb.com/manual/reference/command/nav-aggregation/)
 
 **agregacion por tuberia**
 
 consiste en utilizar el [metodo](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/#db.collection.aggregate)
+
 ```javascript
-  db.colection.aggregate( pipeline, options )
+db.colection.aggregate(pipeline, options);
 ```
+
 que agrega secuencia de operaciones sobre una coleccion
-estas operaciones se denominan [*etapas de la tuberia de agregacion*](https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/#aggregation-pipeline-stages)
+estas operaciones se denominan [_etapas de la tuberia de agregacion_](https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/#aggregation-pipeline-stages)
+
+#### Backups
+
+realizar copia de seguridad sobre una base de datos
+
+```javascript
+mongodump --db=test
+```
+[referencia](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
 
 #### Shell scripts
 
@@ -127,17 +151,19 @@ mongo path/<file-name>.js
 Ejecutar operaciones dentro de un archivo .js desde dentro de la Shell
 
 ```javascript
-use <db-name>
-db.find("path/<file-name>.js")
+use < db - name > db.find("path/<file-name>.js");
 ```
+[refecencias](https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/index.html)
 
 #### Administracion de usuarios y seguridad
 
-En una instalacion limpia de mongodb server la ejecucion del cliente de mongo *mongod* carece de seguridad por lo que es vital tomar acciones basicas de seguridad como ser: 
+En una instalacion limpia de mongodb server la ejecucion del cliente de mongo _mongod_ carece de seguridad por lo que es vital tomar acciones basicas de seguridad como ser:
+
 1. crear una cuanta de administrador para evitar intrusiones.
 2. cada vez que creemos una nueva base de datos asingar un asuario que se encargara de la misma.
 
 crear cuenta de administrador
+
 ```javascript
 use admin
 db.createUser(
@@ -150,27 +176,24 @@ db.createUser(
 ```
 
 crear un nuevo usuario para una base de datos
+
 ```javascript
 db.createUser(
-    {
-        user: "josh",
-        pwd: "josh",
-        roles: [ { role: <rol>, db: <db-name> } ]
-    }
+  {
+    user: "josh",
+    pwd: "josh",
+    roles: [ { role: <rol>, db: <db-name> } ]
+  }
 )
 // rol: readWrite, read, write, dbOwner
 ```
 
 actualizar usuario
+
 ```javascript
-db.updateUser(
-   "josh",
-   {
-     roles : [
-       { role: "dbOwner", db: "hospitalDB" },
-     ]
-   }
-)
+db.updateUser("josh", {
+  roles: [{ role: "dbOwner", db: "hospitalDB" }],
+});
 ```
 
 #### references

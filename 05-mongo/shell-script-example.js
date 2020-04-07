@@ -4,3 +4,4 @@ db.products.insert({
     name: "bonobon",
     price: 3.45,
 });
+

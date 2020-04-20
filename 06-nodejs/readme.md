@@ -1,13 +1,20 @@
 # nodejs
 ## Comandos
 
-iniciar proyecto con node:
+ejecutar un archivo .js con node:
+
+
+```javascript
+node <file-name>.js
+```
+
+indicarle a un directorio node que se instalaran dependencias:
 
 ```javascript
 npm init -y
 ```
 
-iniciar proyecto con node:
+iniciar proyecto con typescript:
 
 ```javascript
 npm tsc --init
@@ -34,3 +41,12 @@ touch .gitignore
 - configuramos el tsconfig.json
 - creamos la estructura de la api en el /src
 - configuramos los script de ejecucion en el packege.json
+
+## http module 
+
+[referencia](https://flaviocopes.com/node-make-http-requests/)
+[ejemplo](http://zetcode.com/javascript/http/)
+
+## Referencias
+
+[node documentation](https://nodejs.dev/introduction-to-nodejs)

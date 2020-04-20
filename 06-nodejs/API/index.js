@@ -225,7 +225,7 @@ app.delete("/customers/:id", (req, res) => {
     res.status(200).json({
       ok: true,
       message: `usuario eliminado con exito`,
-      user: userErased
+      user: userErased,
     });
   });
 });

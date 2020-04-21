@@ -1,6 +1,9 @@
+// ASI ES COMO LUCE UN SRVIDOR QUE RECIBA PETICIONES 
+// ESCRITO CON EL MODULO HTTP DE NODE OSEA QUE NO USA EXPRESS
+
 console.log('hola mundo desde npm!!!');
 
-// crear servidor
+// SERVIDOR QUE ENVIA DATOS
 const http = require('http');
 
 http.createServer((req, res) => {
@@ -13,7 +16,7 @@ http.createServer((req, res) => {
 
 console.log('server running on port 8080');
 
-// post data
+// SERVIDOR QUE RECIBE DATOS
 const http = require('http');
 const url = require('url');
 

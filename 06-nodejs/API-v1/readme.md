@@ -2,6 +2,15 @@
 
 este es un modelo sencillo de una API que se puede limitar a realizar peticiones que cumplan con realizar las operaciones CRUD dentro de una base de datos en mongoDB sirve a la perfeccion para procesar preticiones simples y sin validaciones ideal si se esta desarrollando solo un Front End y se requiere una conexion simple a una base de datos. Sin embargo no es para nada recomendable utilizar este modelo para proyectos avanzados o para hospedar en algun servicio en la nube.
 
+## requerimientos
+
+Para funcionar correctamente esta API necesita de:
+
+- [Nodejs](https://nodejs.org/es/https://nodejs.org/es/)
+- [mongoDB](https://www.mongodb.com/es)
+
+mongoDB debe funcionar en el puerto: `27018`
+
 ## intalaciones
 
 esta API trabaja con los siguientes modulos 

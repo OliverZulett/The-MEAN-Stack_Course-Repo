@@ -1,0 +1,25 @@
+{
+  "name": "culturacupcakeapi",
+  "version": "1.0.0",
+  "description": "esta es una API para el modelo de negocio de la empresa de pasteleria Cultura Cupcake",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\" ",
+    "build": "tsc"
+  },
+  "author": "oliver zulett",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/express": "^4.17.6",
+    "@types/mongoose": "^5.7.12",
+    "tsc-watch": "^4.2.3",
+    "typescript": "^3.8.3"
+  }
+}

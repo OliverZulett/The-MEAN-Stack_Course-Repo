@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import Customer from "../models/customer.model";
 import { statusResponse } from "../functions/statusResponse.function";
+import { createToken } from "../functions/createTokens.function";
 
 
 export const customersList = async (req: Request, res: Response) => {
@@ -72,3 +73,4 @@ export const deleteCustomerById = async (req: Request, res: Response) => {
     statusResponse(res, 200, 'Cliente eliminado con exito', null, { customer: customer });
   });
 }
+

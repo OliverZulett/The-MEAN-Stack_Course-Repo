@@ -8,7 +8,8 @@ export interface ICustomer extends Document {
   nit: number;
   adress: string;
   phone: number;
-  password: (pasword: string) => Promise<boolean>;
+  password:string;
+  comparePassword: (pasword: string) => Promise<boolean>;
 }
 
 const customerSchema = new Schema(
@@ -52,5 +53,29 @@ const customerSchema = new Schema(
     collection: "customers",
   }
 );
+
+// Asignamos un middleware
+customerSchema.pre<ICustomer>('save', async function (next) {
+  const customer = this;
+  if (!customer.isModified('password')) return next();
+  const salt = await bcrypt.genSalt(10); //cuantas veces va a encriptar
+  const hash = await bcrypt.hash(customer.password, salt); //contraseña cifrada
+  customer.password = hash;
+  next();//el next continua con el codigo es como el return 
+});
+
+customerSchema.pre<ICustomer>('findByIdAndDelete', async function (next) {
+  const customer = this;
+  if (!customer.isModified('password')) return next();
+  const salt = await bcrypt.genSalt(10); //cuantas veces va a encriptar
+  const hash = await bcrypt.hash(customer.password, salt); //contraseña cifrada
+  customer.password = hash;
+  next();//el next continua con el codigo es como el return 
+});
+
+// methodos para el esquema
+customerSchema.methods.comparePassword = async function (password: string): Promise<boolean> {
+  return await bcrypt.compare(password, this.password)
+}
 
 export default model<ICustomer>('Customer', customerSchema);

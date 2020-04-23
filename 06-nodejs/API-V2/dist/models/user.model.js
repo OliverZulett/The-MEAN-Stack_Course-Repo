@@ -15,6 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const userSchema = new mongoose_1.Schema({
+    role: {
+        type: String,
+        required: true,
+        default: 'USER_ROLE'
+    },
     name: {
         type: String,
         trim: true,
@@ -37,7 +42,7 @@ const userSchema = new mongoose_1.Schema({
         required: [true, "La contraseña es necesaria"],
     },
     nit: {
-        type: [Number, "el nit solo admite numeros"],
+        type: Number,
         trim: true,
         required: [true, "El nit o ci es necesario"],
     },

@@ -1,7 +1,7 @@
 import { Schema, Document, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
-export interface ICustomer extends Document {
+export interface IUser extends Document {
   name: string;
   surname: string;
   email: string;
@@ -12,8 +12,14 @@ export interface ICustomer extends Document {
   comparePassword: (pasword: string) => Promise<boolean>;
 }
 
-const customerSchema = new Schema(
+const userSchema = new Schema(
   {
+    
+    role: {
+      type: String,
+      required: true, 
+      default: 'USER_ROLE'
+    },
     name: {
       type: String,
       trim: true,
@@ -36,7 +42,7 @@ const customerSchema = new Schema(
       required: [true, "La contraseña es necesaria"],
     },
     nit: {
-      type: [Number, "el nit solo admite numeros"],
+      type: Number,
       trim: true,
       required: [true, "El nit o ci es necesario"],
     },
@@ -50,32 +56,32 @@ const customerSchema = new Schema(
     },
   },
   {
-    collection: "customers",
+    collection: "users",
   }
 );
 
 // Asignamos un middleware
-customerSchema.pre<ICustomer>('save', async function (next) {
-  const customer = this;
-  if (!customer.isModified('password')) return next();
+userSchema.pre<IUser>('save', async function (next) {
+  const user = this;
+  if (!user.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10); //cuantas veces va a encriptar
-  const hash = await bcrypt.hash(customer.password, salt); //contraseña cifrada
-  customer.password = hash;
+  const hash = await bcrypt.hash(user.password, salt); //contraseña cifrada
+  user.password = hash;
   next();//el next continua con el codigo es como el return 
 });
 
-customerSchema.pre<ICustomer>('findByIdAndDelete', async function (next) {
-  const customer = this;
-  if (!customer.isModified('password')) return next();
+userSchema.pre<IUser>('findByIdAndDelete', async function (next) {
+  const user = this;
+  if (!user.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10); //cuantas veces va a encriptar
-  const hash = await bcrypt.hash(customer.password, salt); //contraseña cifrada
-  customer.password = hash;
+  const hash = await bcrypt.hash(user.password, salt); //contraseña cifrada
+  user.password = hash;
   next();//el next continua con el codigo es como el return 
 });
 
 // methodos para el esquema
-customerSchema.methods.comparePassword = async function (password: string): Promise<boolean> {
+userSchema.methods.comparePassword = async function (password: string): Promise<boolean> {
   return await bcrypt.compare(password, this.password)
 }
 
-export default model<ICustomer>('Customer', customerSchema);
+export default model<IUser>('User', userSchema);

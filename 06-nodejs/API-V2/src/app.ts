@@ -4,7 +4,8 @@ import cors from 'cors';
 import passport from 'passport';
 
 // importacion de rutas
-import customerRouter from './routes/customers.routes';
+import userRouter from './routes/users.routes';
+import authRouter from './routes/auth.routes';
 
 // importacion de middlewares
 import passportMiddleware from './middlewares/passport';
@@ -26,7 +27,7 @@ passport.use(passportMiddleware);
 app.get('/', (req: Request, res: Response) => {
     res.send(`Puedes realizar peticiones en: http://localhost:${app.get('port')}/URI`);
 });
-app.use('/customers',customerRouter);
-app.use('/login',customerRouter);
+app.use('/users',userRouter);
+app.use('/login',authRouter);
 
 export default app;

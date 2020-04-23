@@ -41,8 +41,8 @@ las peticiones se realizan por el puerto `3000` desde la url:
 
 las peticiones que se pueden realizar son: 
 
-* `http://localhost:3000/customers` ->  listar todos los clientes en la DB (GET)
-* `http://localhost:3000/customers/id` -> obtener un cliente por su _id (GET)
-* `http://localhost:3000/customers` -> crear un nuevo cliente pasando los parametros por el cuerpo de la peticion (POST)
-* `http://localhost:3000/customers/id` -> actualizr un cliente pasando los parametros por el cuerpo de la peticion y por su _id en la url (PUT)
-* `http://localhost:3000/customers/id` -> eliminar un cliente por su _id (DELETE)
+* `http://localhost:3000/users` ->  listar todos los usuarios en la DB (GET)
+* `http://localhost:3000/users/id` -> obtener un usuario por su _id (GET)
+* `http://localhost:3000/users` -> crear un nuevo usuario pasando los parametros por el cuerpo de la peticion (POST)
+* `http://localhost:3000/users/id` -> actualizr un usuario pasando los parametros por el cuerpo de la peticion y por su _id en la url (PUT)
+* `http://localhost:3000/users/id` -> eliminar un usuario por su _id (DELETE)

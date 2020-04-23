@@ -12,48 +12,48 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const customer_model_1 = __importDefault(require("../models/customer.model"));
+const user_model_1 = __importDefault(require("../models/user.model"));
 const statusResponse_function_1 = require("../../functions/statusResponse.function");
-exports.customersList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const customer = yield customer_model_1.default.find({}, "_id name surname", (err, customers) => {
+exports.usersList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield user_model_1.default.find({}, "_id name surname", (err, users) => {
         if (err) {
-            return statusResponse_function_1.statusResponse(res, 500, 'error al buscar clientes', err);
+            return statusResponse_function_1.statusResponse(res, 500, 'error al buscar usuarios', err);
         }
-        statusResponse_function_1.statusResponse(res, 200, "Lista de clientes", null, { customers: customers });
+        statusResponse_function_1.statusResponse(res, 200, "Lista de usuarios", null, { users: users });
     });
 });
-exports.getCustomerById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
-    yield customer_model_1.default.findById(id, (err, customer) => {
+    yield user_model_1.default.findById(id, (err, user) => {
         if (err) {
-            return statusResponse_function_1.statusResponse(res, 500, `Cliente con el id: ${id} no encontrado`, err);
+            return statusResponse_function_1.statusResponse(res, 500, `Usuario con el id: ${id} no encontrado`, err);
         }
-        statusResponse_function_1.statusResponse(res, 200, '', null, { customer: customer });
+        statusResponse_function_1.statusResponse(res, 200, '', null, { user: user });
     });
 });
-exports.createCustomer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const dataRecibida = req.body;
     if (!dataRecibida) {
         return statusResponse_function_1.statusResponse(res, 400, 'error al recibir los datos', null);
     }
-    const customer = (yield customer_model_1.default.findOne({ email: req.body.email })) || (yield customer_model_1.default.findOne({ nit: req.body.nit }));
-    // console.log(customer);
-    if (customer) {
-        return statusResponse_function_1.statusResponse(res, 400, 'El cliente ya exites', null);
+    const user = (yield user_model_1.default.findOne({ email: req.body.email })) || (yield user_model_1.default.findOne({ nit: req.body.nit }));
+    // console.log(user);
+    if (user) {
+        return statusResponse_function_1.statusResponse(res, 400, 'El usuario ya exites', null);
     }
-    const newCustomer = new customer_model_1.default(req.body);
-    yield newCustomer.save((err, newCustomer) => {
+    const newUser = new user_model_1.default(req.body);
+    yield newUser.save((err, newUser) => {
         if (err) {
             return res.status(500).json({
                 ok: false,
-                message: "error al guardar cliente",
+                message: "error al guardar usuario",
                 errors: err,
             });
         }
         res.status(201).json({
             ok: true,
-            message: "Cliente guardado",
-            newCustomer: newCustomer,
+            message: "Usuario guardado",
+            newUser: newUser,
         });
     });
 });

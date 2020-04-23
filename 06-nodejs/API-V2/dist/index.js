@@ -6,4 +6,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 require("./database");
 app_1.default.listen(app_1.default.get('port'));
-console.log(`el servidro se ejecuta en el puerto: ${app_1.default.get('port')}`);
+console.log(`el servidor se ejecuta en el puerto: ${app_1.default.get('port')}`);

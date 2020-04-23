@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_model_1 = __importDefault(require("../models/user.model"));
 const statusResponse_function_1 = require("../functions/statusResponse.function");
+const createTokens_function_1 = require("../functions/createTokens.function");
+const verifyAuthorization_function_1 = __importDefault(require("../functions/verifyAuthorization.function"));
 exports.usersList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield user_model_1.default.find({}, "_id name surname", (err, users) => {
         if (err) {
@@ -24,6 +26,9 @@ exports.usersList = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
+    if (!verifyAuthorization_function_1.default(req.user, res, id)) {
+        return statusResponse_function_1.statusResponse(res, 401, `Usuario no autorizado para realizar la peticion`, null);
+    }
     yield user_model_1.default.findById(id, (err, user) => {
         if (err) {
             return statusResponse_function_1.statusResponse(res, 500, `Usuario con el id: ${id} no encontrado`, err);
@@ -45,12 +50,15 @@ exports.createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         if (err) {
             return statusResponse_function_1.statusResponse(res, 500, 'error al guardar usuario', err);
         }
-        statusResponse_function_1.statusResponse(res, 201, 'usuario guardado', null, { new_user: newUser });
+        statusResponse_function_1.statusResponse(res, 201, 'usuario guardado', null, { new_user: newUser, token: createTokens_function_1.createToken(newUser) });
     });
 });
 exports.updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
     console.log(req.body);
+    if (!verifyAuthorization_function_1.default(req.user, res, id)) {
+        return statusResponse_function_1.statusResponse(res, 401, `Usuario no autorizado para realizar la peticion`, null);
+    }
     if (!req.body || Object.keys(req.body).length === 0) {
         return statusResponse_function_1.statusResponse(res, 400, 'error al recibir los datos', null);
     }
@@ -68,6 +76,9 @@ exports.updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.deleteUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
+    if (!verifyAuthorization_function_1.default(req.user, res, id)) {
+        return statusResponse_function_1.statusResponse(res, 401, `Usuario no autorizado para realizar la peticion`, null);
+    }
     yield user_model_1.default.findByIdAndDelete(id, (err, user) => {
         if (err) {
             return statusResponse_function_1.statusResponse(res, 500, `Usuario con el id: ${id} no encontrado`, err);

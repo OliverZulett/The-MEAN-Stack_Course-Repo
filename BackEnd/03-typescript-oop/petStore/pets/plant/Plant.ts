@@ -1,7 +1,6 @@
 import { Pet } from '../Pet';
 import { PlantInterface } from './PlantInterface';
 
-
 export class Plant extends Pet implements PlantInterface {
 
     private spices: string;

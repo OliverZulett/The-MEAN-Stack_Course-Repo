@@ -1,0 +1,141 @@
+:root {
+    --color_1: #05668D;
+    --color_2: #028090;
+    --color_3: #00A896;
+    --color_4: #02C39A;
+    --color_5: #F0F3BD;
+}
+
+h1, h2, h3 {
+    font-family: 'Dancing Script', cursive !important;
+}
+
+p {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+nav .title a{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.9em !important;
+    line-height: 1 !important;
+    font-weight: bold;
+    color: var(--color_1) !important;
+}
+nav .logo img {
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+}
+
+nav .menu .nav-item.nav-link {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: var(--color_1);
+}
+
+nav .menu .nav-item.nav-link.active {
+    color: var(--color_3);
+    font-weight: 500;
+}
+
+.menu .login {
+    font-size: 1.5em;
+
+}
+
+.jumbotron {
+    background-image:linear-gradient(90deg, rgba(8,60,82,0.4766281512605042) 0%, rgba(255,255,255,0) 63%),
+    url('assets/bakery.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    min-height: 40vh;
+}
+
+.jumbotron .container {
+    color: white;
+}
+
+
+nav .page-item .page-link{
+    font-family: 'Raleway', sans-serif !important;
+    border-radius: 100% !important;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+    font-family: sans-serif;
+    font-size: 1.1em;
+    border: 1px solid #28b78d;
+    color: #0062cc;
+}
+
+nav .page-item .page-link:hover{
+    border: 1px solid #0062cc;
+    color: #28b78d;
+}
+
+nav .page-item.active .page-link{
+    border: 1px solid #0062cc;
+    color: #28b78d;
+}
+
+
+.footer-top {
+    padding: 60px 0;
+    background-image: 
+    linear-gradient(56deg, rgba(2,128,144,0.3841911764705882) 9%, rgba(8,60,82,0.29175420168067223) 34%), 
+        url(https://images.unsplash.com/photo-1566897819059-db42e135fa69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+    /* text-align: left; */
+    background-position: center;
+    /* color: #aaa; */
+
+}
+
+.footer-top .logo img{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+.footer-top  .title a{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.9em !important;
+    line-height: 1 !important;
+    font-weight: bold;
+    color: white !important;
+}
+
+.footer-top p {
+    font-size: 1em;
+    color: white;
+}
+
+.footer-top .footer-contact, 
+.footer-top .footer-social {
+    color: white;
+}
+
+.footer-top .footer-contact a , 
+.footer-top .footer-social a{
+    text-decoration: none;
+    color: white;
+}
+.footer-top .footer-social a{
+    font-size: 2em;
+}
+
+.footer-bottom {
+    padding: 15px 0;
+    background: #10202a;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+}
+
+.footer-bottom .footer-copyright a{
+    text-decoration: none;
+    font-family: 'Odibee Sans', cursive;
+    color: rgb(228, 83, 83);
+}

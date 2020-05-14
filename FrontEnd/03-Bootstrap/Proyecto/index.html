@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+  <title>Bakery Store</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap"
+    rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+
+  <!-- font awesome -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+  <!-- stilos -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/button.css" />
+  <link rel="stylesheet" href="styles/cards.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white pt-4 pb-4">
+        <!-- logo, title -->
+        <div class="d-flex flex-row align-items-center">
+          <div class="logo mr-3">
+            <img src="assets/logo.png" alt="logo" />
+          </div>
+          <div class="title">
+            <a class="navbar-brand display-2" href="#">Bakery<br />Store</a>
+          </div>
+        </div>
+        <!-- menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav menu align-items-center">
+            <a class="nav-item nav-link active" href="#">Productos<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Acerca de</a>
+            <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@getbootstrap">
+              Login
+              <i class="fa fa-user-circle"></i>
+            </button>
+            <!-- login form -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      New message
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name" />
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Send message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Jumbotron -->
+    <section>
+      <div class="jumbotron jumbotron-fluid d-flex align-items-center">
+        <div class="container">
+          <h1 class="display-4">Servicio de reposteria</h1>
+          <p class="lead w-50">
+            This is a modified jumbotron that occupies the entire horizontal
+            space of its parent.
+          </p>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- container -->
+    <section class="container">
+      <!-- title page -->
+
+      <article class="mt-5 mb-5">
+        <h1>Nuestros Productos</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
+          dolor odio odit veniam! Fuga dolorum unde soluta ex alias?
+        </p>
+      </article>
+
+      <!-- cards -->
+      <main class="page-content">
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card" style="
+              background-image: url(https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1098&q=80);
+            ">
+          <div class="content">
+            <h2 class="title">Mountain View</h2>
+            <p class="copy">
+              Check out all of these gorgeous mountain trips with beautiful
+              views of, you guessed it, the mountains
+            </p>
+            <div class="price d-flex">
+              <h2 class="title mr-1">Precio:</h2>
+              <p>34 $</p>
+            </div>
+            <div class="d-flex justify-content-around w-100">
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                Detalles
+                <i class="fa fa-info-circle"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@getbootstrap">
+                +
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+            <!-- <button class="btn">View Trips</button> -->
+          </div>
+        </div>
+
+        <!-- <div class="card">
+            <div class="content">
+              <h2 class="title">To The Beach</h2>
+              <p class="copy">Plan your next beach trip with these fabulous destinations</p>
+              <button class="btn">View Trips</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content">
+              <h2 class="title">Desert Destinations</h2>
+              <p class="copy">It's the desert you've always dreamed of</p>
+              <button class="btn">Book Now</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="content">
+              <h2 class="title">Explore The Galaxy</h2>
+              <p class="copy">Seriously, straight up, just blast off into outer space today</p>
+              <button class="btn">Book Now</button>
+            </div>
+          </div> -->
+      </main>
+
+      <div class="d-flex justify-content-center m-5">
+        <nav aria-label="...">
+          <ul class="pagination pagination-sm">
+            <li class="page-item ml-1 mr-1 active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item ml-1 mr-1"><a class="page-link" href="#">2</a></li>
+            <li class="page-item ml-1 mr-1"><a class="page-link" href="#">3</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 col-lg-4 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="d-flex flex-row align-items-center">
+              <div class="logo mr-3">
+                <img src="assets/logo.png" alt="logo" />
+              </div>
+              <div class="title">
+                <a class="navbar-brand display-2" href="#">Bakery<br />Store</a>
+              </div>
+            </div>
+            <p>
+              We are a young company always looking for new and creative ideas to help you with our products in your
+              everyday work.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact wow fadeInDown animated"
+            style="visibility: visible; animation-name: fadeInDown;">
+            <h3>Contact</h3>
+            <p><i class="fa fa-map-marker-alt"></i> Via Rossini 10, 10136 Turin Italy</p>
+            <p><i class="fa fa-phone"></i> Phone: (0039) 333 12 68 347</p>
+            <p><i class="fa fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
+            <p><i class="fa fa-skype"></i> Skype: you_online</p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 footer-social wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+            <h3>Follow us</h3>
+            <p>
+              <a class="ml-1 mr-1" href="#"><i class="fa fa-facebook"></i></a>
+              <a class="ml-1 mr-1" href="#"><i class="fa fa-instagram"></i></a>
+              <a class="ml-1 mr-1" href="#"><i class="fa fa-youtube"></i></a>
+              <a class="ml-1 mr-1" href="#"><i class="fa fa-linkedin"></i></a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex justify-content-end">
+        <div class="footer-copyright d-flex align-items-center">
+          <p class="m-0">© Desarrollado por <a href="https://azmind.com">{ OLIVER ZULETT }</a></p>
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-7 footer-menu">
+            <nav class="navbar navbar-dark navbar-expand-md">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link scroll-link" href="#top-content">Top</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link scroll-link" href="#section-1">Section 1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link scroll-link" href="#section-2">Section 2</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link scroll-link" href="#section-3">Section 3</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link scroll-link" href="#section-4">Section 4</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap"
     rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet" />
 
   <!-- font awesome -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -38,13 +38,19 @@
             <img src="assets/logo.png" alt="logo" />
           </div>
           <div class="title">
-            <a class="navbar-brand display-2" href="#">Bakery<br />Store</a>
+            <a class="navbar-brand" href="#">
+              <h1 class="m-0 display-md-4">Bakery<br />Store</h1>
+            </a>
           </div>
         </div>
+        <button class="navbar-toggler bttn-unite bttn-lg bttn-success" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+          <i class="fa fa-bars"></i>
+        </button>
         <!-- menu -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav menu align-items-center">
-            <a class="nav-item nav-link active" href="#">Productos<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Productos</a>
             <a class="nav-item nav-link" href="#">Acerca de</a>
             <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
               data-target="#exampleModal" data-whatever="@getbootstrap">
@@ -96,7 +102,7 @@
       <div class="jumbotron jumbotron-fluid d-flex align-items-center">
         <div class="container">
           <h1 class="display-4">Servicio de reposteria</h1>
-          <p class="lead w-50">
+          <p class="lead w-md-50">
             This is a modified jumbotron that occupies the entire horizontal
             space of its parent.
           </p>
@@ -134,18 +140,18 @@
               <p>34 $</p>
             </div>
             <div class="d-flex justify-content-around w-100">
-              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
-                data-target="#exampleModal" data-whatever="@getbootstrap">
+              <button type="button" class="bttn-unite bttn-sm bttn-success">
                 Detalles
                 <i class="fa fa-info-circle"></i>
               </button>
-              <button type="button" class="bttn-unite bttn-sm bttn-success" data-toggle="modal"
-                data-target="#exampleModal" data-whatever="@getbootstrap">
+              <button type="button" class="bttn-unite bttn-sm bttn-success">
                 +
                 <i class="fa fa-shopping-cart"></i>
               </button>
+              <button type="button" class="bttn-unite bttn-sm bttn-primary">
+                <i class="fa fa-edit"></i>
+              </button>
             </div>
-            <!-- <button class="btn">View Trips</button> -->
           </div>
         </div>
         <!-- card -->
@@ -434,13 +440,18 @@
       </main>
 
       <div class="d-flex justify-content-center m-5">
-        <nav aria-label="...">
-          <ul class="pagination pagination-sm">
-            <li class="page-item ml-1 mr-1 active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item ml-1 mr-1"><a class="page-link" href="#">2</a></li>
-            <li class="page-item ml-1 mr-1"><a class="page-link" href="#">3</a></li>
-          </ul>
-        </nav>
+        <button type="button" class="bttn-unite bttn-sm bttn-success active mr-1">
+          1
+        </button>
+        <button type="button" class="bttn-unite bttn-sm bttn-success mr-1">
+          2
+        </button>
+        <button type="button" class="bttn-unite bttn-sm bttn-success mr-1">
+          3
+        </button>
+        <button type="button" class="bttn-unite bttn-sm bttn-success mr-1">
+          4
+        </button>
       </div>
     </section>
   </main>
@@ -448,8 +459,8 @@
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
-          <div class="col-md-4 col-lg-4 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="col-md-4 col-lg-4 footer-about wow fadeInUp animated"
+            style="visibility: visible; animation-name: fadeInUp;">
             <div class="d-flex flex-row align-items-center">
               <div class="logo mr-3">
                 <img src="assets/logo.png" alt="logo" />
@@ -459,37 +470,54 @@
               </div>
             </div>
             <p>
-              We are a young company always looking for new and creative ideas to help you with our products in your
-              everyday work.
+              We are a young company always looking for new and creative ideas
+              to help you with our products in your everyday work.
             </p>
           </div>
 
-          <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact wow fadeInDown animated"
+          <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact wow fadeInDown animated text-center text-md-left mt-5 mt-md-0"
             style="visibility: visible; animation-name: fadeInDown;">
             <h3>Contact</h3>
-            <p><i class="fa fa-map-marker-alt"></i> Via Rossini 10, 10136 Turin Italy</p>
+            <p>
+              <i class="fa fa-map-marker-alt"></i> Via Rossini 10, 10136 Turin
+              Italy
+            </p>
             <p><i class="fa fa-phone"></i> Phone: (0039) 333 12 68 347</p>
-            <p><i class="fa fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
+            <p>
+              <i class="fa fa-envelope"></i> Email:
+              <a href="mailto:hello@domain.com">hello@domain.com</a>
+            </p>
             <p><i class="fa fa-skype"></i> Skype: you_online</p>
           </div>
 
-          <div class="col-md-4 col-lg-3 footer-social wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="col-md-4 col-lg-3 footer-social wow fadeInUp animated text-center text-md-left mt-5 mt-md-0"
+            style="visibility: visible; animation-name: fadeInUp;">
             <h3>Follow us</h3>
             <p>
-              <a class="ml-1 mr-1" href="#"><i class="fa fa-facebook"></i></a>
-              <a class="ml-1 mr-1" href="#"><i class="fa fa-instagram"></i></a>
-              <a class="ml-1 mr-1" href="#"><i class="fa fa-youtube"></i></a>
-              <a class="ml-1 mr-1" href="#"><i class="fa fa-linkedin"></i></a>
+              <button type="button" class="bttn-unite bttn-md bttn-success text-white">
+                <i class="fa fa-facebook "></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-md bttn-success text-white">
+                <i class="fa fa-instagram"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-md bttn-success text-white">
+                <i class="fa fa-youtube"></i>
+              </button>
+              <button type="button" class="bttn-unite bttn-md bttn-success text-white">
+                <i class="fa fa-linkedin"></i>
+              </button>
             </p>
           </div>
-
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container d-flex justify-content-end">
         <div class="footer-copyright d-flex align-items-center">
-          <p class="m-0">© Desarrollado por <a href="https://azmind.com">{ OLIVER ZULETT }</a></p>
+          <p class="m-0">
+            © Desarrollado por
+            <a href="https://azmind.com">{ OLIVER ZULETT }</a>
+          </p>
         </div>
         <!-- <div class="row">
           <div class="col-md-7 footer-menu">

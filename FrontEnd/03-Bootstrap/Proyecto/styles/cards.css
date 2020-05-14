@@ -28,12 +28,39 @@ body {
   /* font-family: var(--font-sans); */
   font-family: 'Raleway', sans-serif !important;
 }
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
   .page-content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} */
+
+@media (min-width: 576px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (min-width: 768px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (min-width: 992px) {
+  .page-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (min-width: 1200px) {
   .page-content {
     grid-template-columns: repeat(4, 1fr);
   }

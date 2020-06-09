@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # AngularGames
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+=======
+# AngularReddit
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+>>>>>>> a19e408a8db179ef98ab17e743f95126e233ce76
 
 ## Development server
 

@@ -1,6 +1,10 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+<<<<<<< HEAD
   "version": 1,
+=======
+  "version": 1, 
+>>>>>>> a19e408a8db179ef98ab17e743f95126e233ce76
   "newProjectRoot": "projects",
   "projects": {
     "angular-games": {

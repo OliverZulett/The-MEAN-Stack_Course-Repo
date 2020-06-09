@@ -1,0 +1,36 @@
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png"
+            width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        {{pageTitle}}
+    </a>
+</nav>
+
+<div class="container">
+    <h1>{{title}}</h1>
+
+    <form>
+        <div class="form-group">
+            <label for="title">Titulo:</label>
+
+            <input #newtitle type="text" class="form-control" id="title" aria-describedby="titleHelp">
+
+            <small id="titleHelp" class="form-text text-muted">Ingresa el titulo de tu videojuego favorito.</small>
+        </div>
+        <div class="form-group">
+            <label for="link">Link:</label>
+
+            <input #newlink type="text" class="form-control" id="link" aria-describedby="linkHelp">
+
+            <small id="linkHelp" class="form-text text-muted">Ingresa el link del videojuego.</small>
+        </div>
+        <button (click)="addGame(newtitle,newlink)" type="submit" class="btn btn-primary">
+            Enviar Juego
+        </button>
+    </form>
+    <!-- <app-game></app-game> -->
+    <app-game *ngFor="let game of sortedGames()" [game]="game" ></app-game>
+    <!-- <app-game *ngFor="let article of sortedArticles()" [article]="article"></app-game> -->
+
+</div>

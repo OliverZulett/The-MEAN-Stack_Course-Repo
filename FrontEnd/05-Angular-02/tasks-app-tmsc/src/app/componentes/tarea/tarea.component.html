@@ -1,0 +1,12 @@
+<div [ngClass]="{'text-white bg-dark': !task.status}" class="card  mb-3" style="max-width: 18rem;">
+	<div class="card-header">{{task.date | date}}</div>
+	<div class="card-body">
+		<h5 class="card-title">{{task.title | titlecase}}</h5>
+		<p class="card-text">{{task.description}}</p>
+	</div>
+  <div class="card-footer text-muted d-flex justify-content-center">
+    <button (click)="drop()" [ngClass]="{'btn-outline-warning': !task.status, 'btn-warning': task.status}" type="button" class="btn mr-1">DROP</button>
+    <button *ngIf="!task.status" (click)="done()" [ngClass]="{'btn-outline-info': !task.status, 'btn-info': task.status}" type="button" class="btn ml-1">DONE</button>
+    <button *ngIf="task.status" (click)="undone()" [ngClass]="{'btn-outline-info': !task.status, 'btn-info': task.status}" type="button" class="btn ml-1">UNDONE</button>
+  </div>
+</div>

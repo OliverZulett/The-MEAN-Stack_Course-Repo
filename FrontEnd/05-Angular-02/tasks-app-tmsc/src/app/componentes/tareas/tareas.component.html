@@ -1,0 +1,47 @@
+<h1>Tus tareas</h1>
+<p *ngIf="!tasks.length">No tienes tareas aún, por que no creas alguna :) </p>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+  Crear Tarea +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Crear tarea</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="title">Titulo:</label>
+						<input #newtitle type="text" class="form-control" id="title" aria-describedby="titleHelp">
+						<small id="titleHelp" class="form-text text-muted">Ingresa el titulo de tu nueva tarea.</small>
+					</div>
+					<div class="form-group">
+						<label for="task">Descripción:</label>
+						<input #newtask type="text" class="form-control" id="task" aria-describedby="taskHelp">
+						<small id="taskHelp" class="form-text text-muted">Ingresa la descripción de la tarea.</small>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+				<button (click)="save(newtitle, newtask)" type="button" class="btn btn-info" data-dismiss="modal">Crear Tarea</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- deck -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-5">
+	<div *ngFor="let task of tasks" class="col mb-4">
+		<app-tarea [task]="task" (changeStatus)="changeStatus()" (changeStatus)="changeStatus()" (taskForDrop)="drop($event)"></app-tarea>
+	</div>
+</div> 

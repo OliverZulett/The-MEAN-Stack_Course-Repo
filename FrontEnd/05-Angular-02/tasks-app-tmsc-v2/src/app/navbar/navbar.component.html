@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-2 pb-2">
+	<div class="container">
+    <h1 class="text-white">Task List</h1>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item" routerLinkActive="active" >
+					<a class="nav-link" [routerLink]="['tus-tareas']">Tus tareas</a>
+				</li>
+				<li class="nav-item"  routerLinkActive="active">
+					<a class="nav-link" [routerLink]="['pendientes']">Pendientes</a>
+				</li>
+				<li class="nav-item"  routerLinkActive="active">
+					<a class="nav-link" [routerLink]="['completadas']">Terminadas</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

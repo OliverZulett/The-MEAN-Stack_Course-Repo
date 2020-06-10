@@ -1,0 +1,9 @@
+<h1>Tus tareas</h1>
+<p *ngIf="!tasks.length">No tienes tareas aún, por que no creas alguna :) </p>
+
+<!-- deck -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-5">
+	<div *ngFor="let task of sort()" class="col mb-4">
+		<app-tarea [task]="task" (changeStatus)="changeStatus()" (changeStatus)="changeStatus()" (taskForDrop)="drop($event)" (taslForUpdate)="changeStatus()"></app-tarea>
+	</div>
+</div> 

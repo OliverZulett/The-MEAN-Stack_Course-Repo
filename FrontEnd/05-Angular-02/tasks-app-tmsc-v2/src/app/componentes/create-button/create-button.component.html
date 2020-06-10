@@ -1,0 +1,38 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark rounded-circle" data-toggle="modal" data-target="#exampleModal">
+  <i class="fa fa-plus"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Crear tarea</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+			</div>
+			<div class="modal-body text-left">
+				<form>
+					<div class="form-group">
+						<label for="title">Titulo:</label>
+						<input #newtitle type="text" class="form-control" id="title" aria-describedby="titleHelp" autocomplete="off">
+						<small id="titleHelp" class="form-text text-muted">Ingresa el titulo de tu nueva tarea.</small>
+					</div>
+					<div class="form-group">
+						<label for="task">Descripción:</label>
+						<input #newtask type="text" class="form-control" id="task" aria-describedby="taskHelp" autocomplete="off">
+						<small id="taskHelp" class="form-text text-muted">Ingresa la descripción de la tarea.</small>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+				<button (click)="save(newtitle, newtask)" type="button" class="btn btn-info" data-dismiss="modal">Crear Tarea</button>
+				<!-- <button type="button" class="btn btn-info" data-dismiss="modal">Crear Tarea</button> -->
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<h1>Tus tareas pendientes</h1>
+<p *ngIf="!filter().length">No tienes tareas aún, por que no creas alguna :) </p>
+<p *ngIf="filter().length">No dejes para mañana lo que puedes hacer hoy :) </p>
+
+<!-- deck -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-5">
+	<div *ngFor="let task of filter()" class="col mb-4">
+		<app-tarea [task]="task" (changeStatus)="changeStatus()" (changeStatus)="changeStatus()" (taskForDrop)="drop($event)"  (taslForUpdate)="changeStatus()"></app-tarea>
+	</div>
+</div> 

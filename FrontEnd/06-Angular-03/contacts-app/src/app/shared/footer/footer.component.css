@@ -1,5 +1,5 @@
 .footer {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
   height: auto;
@@ -40,7 +40,6 @@ ul li a{
 }
 
 ul li a:hover{
-  /* color: var(--second_color); */
   text-shadow: -0.08em 0.08em var(--second_color);
 }
 

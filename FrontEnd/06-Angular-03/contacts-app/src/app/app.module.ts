@@ -8,6 +8,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ContactListComponent } from './pages/contact-list/contact-list.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
+import { CreateButtonComponent } from './components/create-button/create-button.component';
+import { CreateContactComponent } from './pages/create-contact/create-contact.component';
+import { EditContactComponent } from './pages/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ContactCardComponent } from './components/contact-card/contact-card.com
     FooterComponent,
     ContactListComponent,
     ContactComponent,
-    ContactCardComponent
+    ContactCardComponent,
+    CreateButtonComponent,
+    CreateContactComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,

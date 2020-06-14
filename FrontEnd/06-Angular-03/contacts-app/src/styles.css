@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --first_color: #05386b;
+  --second_color: #379683;
+  --third_color: #5cdb95;
+  --fourth_color: #8ee4af;
+  --fifth_color: #edf5e1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Teko", sans-serif;
+}
+
+p,
+span,
+a,
+input {
+  font-family: "Hind", sans-serif;
+}
+
+body {
+  background-color: var(--third_color);
+}
+
+/* inputs */
+
+input.form-control,
+input.form-control:focus {
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid var(--first_color);
+  color: var(--fifth_color);
+  margin: 0px 10px 0px 10px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+input.form-control::placeholder{  
+  color: var(--fifth_color);
+}
+
+/* buttons */
+
+.draw-border {
+  box-shadow: inset 0 0 0 4px var(--first_color);
+  color: var(--first_color);
+  -webkit-transition: color 0.25s 0.0833333333s;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+}
+.draw-border::before,
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:hover {
+  color: var(--fifth_color);
+}
+.draw-border:hover::before,
+.draw-border:hover::after {
+  border-color: var(--fifth_color);
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem  "Teko", sans-serif;
+  padding: 0.5em 1em;
+  letter-spacing: 0.05rem;
+  transition: box-shadow 1s ease-in-out;
+}
+.btn:focus {
+  outline: 2px dotted var(--first_color);
+}
+
+.btn:hover {
+  box-shadow: -0.15em 0.15em var(--first_color);
+}

@@ -1,6 +1,9 @@
 .create-button {
-    background-color: var(--first_color);
-    color: var(--fifth_color);
+    position: sticky;
+    left: 80vw;
+    bottom: 0;
+    background-color: var(--fifth_color);
+    color: var(--first_color);
     height: 50px;
     width: 50px;
     border: none;
@@ -10,8 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
-    left: 85vw;
+    /* left: 85vw; */
     transition: 
         background-color 0.5s ease-in-out,
         color 0.5s ease-in-out,

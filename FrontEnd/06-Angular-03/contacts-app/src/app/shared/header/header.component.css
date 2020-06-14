@@ -1,6 +1,6 @@
 h1 {
   text-transform: uppercase;
-  font-size: 5rem;
+  font-size: 4rem;
   color: var(--fifth_color);
   text-shadow: -0.08em 0.08em var(--first_color);
   transition: color 0.7s ease-in-out, text-shadow 0.7s ease-in-out;

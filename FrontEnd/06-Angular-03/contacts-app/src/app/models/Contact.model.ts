@@ -1,6 +1,7 @@
 import { IContact } from './Contact.interface';
 
 export class Contact implements IContact {
+    id: string;
     firstName: string;
     firstSurname: string;
     cellPhone: number;
@@ -38,7 +39,8 @@ export class Contact implements IContact {
         image?: string,
         nick?: string
     ) {
-        this.firstName = firstName;
+        this.id =
+            this.firstName = firstName;
         this.cellPhone = cellPhone;
         this.firstSurname = firstSurname || '';
         this.email = email || '';

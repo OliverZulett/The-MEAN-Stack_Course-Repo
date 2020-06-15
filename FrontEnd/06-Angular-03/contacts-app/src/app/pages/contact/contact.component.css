@@ -1,0 +1,65 @@
+.image-contact img {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border-radius: 100%;
+  padding: 5%;
+  border: 2px solid var(--first_color);
+}
+
+h1,
+h3,
+label {
+  color: var(--first_color);
+}
+
+small {
+  color: var(--second_color);
+}
+
+h1 {
+  font-size: 3em;
+  text-decoration: underline;
+}
+
+label {
+  font-family: "Teko", sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+input {
+  font-weight: 100;
+}
+
+textarea,
+textarea:focus {
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid var(--first_color);
+}
+
+/* Responsive */
+@media (max-width: 575px) {
+  .form-group {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  /* .form-group {
+        width: 50%;
+    } */
+}
+
+@media (min-width: 768px) {
+  .form-group {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

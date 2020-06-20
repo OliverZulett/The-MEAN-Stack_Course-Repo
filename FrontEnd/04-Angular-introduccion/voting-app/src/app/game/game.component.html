@@ -1,0 +1,31 @@
+<div class="d-flex w-100">
+  <div
+    class="votes d-flex justify-content-center align-items-center border w-25"
+  >
+    <h1 class="mr-1">{{ game.votes }}</h1>
+    <p class="font-weight-lighter m-0">Votos</p>
+  </div>
+
+  <div
+    class="article d-flex flex-column justify-content-start aling-items-start pl-3 w-75"
+  >
+    <h3>{{ game.title }}</h3>
+    <a href="{{ game.link }}" class="text-muted">({{ game.domain() }})</a>
+    <div class="f-flex mt-3">
+      <button
+        (click)="voteUp()"
+        type="button"
+        class="btn btn-outline-success m-1"
+      >
+        votar +
+      </button>
+      <button
+        (click)="voteDown()"
+        type="button"
+        class="btn btn-outline-danger m-1"
+      >
+        votar -
+      </button>
+    </div>
+  </div>
+</div>

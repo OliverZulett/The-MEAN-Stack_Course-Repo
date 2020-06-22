@@ -1,7 +1,7 @@
 .create-button {
     position: sticky;
     left: 80vw;
-    bottom: 0;
+    bottom: 10vh;
     background-color: var(--fifth_color);
     color: var(--first_color);
     height: 50px;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IContact } from '../../models/Contact.interface';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor() { }
+  contacts: IContact[];
+
+  constructor() {
+    this.verifyLocalStorage();
+  }
 
   ngOnInit(): void {
+  }
+
+  private loadFromLocalStorage() {
+    this.contacts = JSON.parse(localStorage.getItem('contacts'));
+  }
+
+  private verifyLocalStorage() {
+    if (localStorage.getItem('contacts')) {
+      this.loadFromLocalStorage();
+    } else {
+      this.contacts = [];
+    }
   }
 
 }

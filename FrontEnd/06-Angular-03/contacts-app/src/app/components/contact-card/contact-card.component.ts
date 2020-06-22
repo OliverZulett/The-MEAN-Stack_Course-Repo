@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IContact } from '../../models/Contact.interface';
 
 @Component({
   selector: 'app-contact-card',
@@ -8,14 +9,15 @@ import { Router } from '@angular/router';
 })
 export class ContactCardComponent implements OnInit {
 
+  @Input() contact: IContact;
+
   constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
 
   navigate() {
-    // console.log('mas tocao');
-    this.router.navigate(['/Contacto']);
+    this.router.navigate([`/Contacto/${this.contact.id}`]);
   }
 
 }

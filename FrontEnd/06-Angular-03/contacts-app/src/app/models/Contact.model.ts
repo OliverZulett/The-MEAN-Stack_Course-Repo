@@ -39,8 +39,8 @@ export class Contact implements IContact {
         image?: string,
         nick?: string
     ) {
-        this.id =
-            this.firstName = firstName;
+        this.id = Math.floor(Math.random() * (999999999 - 111111111 + 1) * 111111111).toString();
+        this.firstName = firstName;
         this.cellPhone = cellPhone;
         this.firstSurname = firstSurname || '';
         this.email = email || '';

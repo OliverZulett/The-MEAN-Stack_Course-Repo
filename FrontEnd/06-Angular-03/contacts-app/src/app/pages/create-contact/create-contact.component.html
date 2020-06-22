@@ -1,42 +1,52 @@
 <h1 class="text-center mb-4 mt-4">Crear Contacto</h1>
+
 <div class="pl-2 pr-2 pl-md-5 pr-md-5">
-  <form class="d-flex flex-column">
+
+  <form 
+    #CreateUserForm="ngForm"
+    class="d-flex flex-column"
+
+    (ngSubmit)="save(CreateUserForm)" 
+  >
 
     <div class="d-flex flex-column flex-md-row">
+
       <!-- First  Name-->
       <div class="form-group p-3">
+
         <label for="firstName">
           Primer nombre:
         </label>
+
         <input
+        
+          ngModel
+          #firstName="ngModel"
+          type="text"
+          name="firstName"
+
           id="firstName"
           class="form-control"
-          name="firstName"
-          type="text"
+          [class.is-wrong]="firstName.invalid && firstName.touched"
           placeholder="Primer nombre"
           aria-describedby="firstNameHelp"
+
+          required
+          minlength="2"
+          pattern="[A-Za-z]+"
         />
-        <small id="firstNameHelp" class="">
+
+        <small *ngIf="!firstName.touched" id="firstNameHelp" class="">
           Ingresa el primer nombre
         </small>
-      </div>
-      <!-- Second Name -->
-      <!-- <div class="form-group p-3">
-        <label for="secondName">
-          Segundo nombre:
-        </label>
-        <input
-          id="secondName"
-          class="form-control"
-          name="secondName"
-          type="text"
-          placeholder="Segundo nombre"
-          aria-describedby="secondNameHelp"
-        />
-        <small id="secondNameHelp" class="">
-          Ingresa tu segundo nombre
+        <small *ngIf="firstName.touched && firstName.invalid" id="firstNameHelp" class="text-danger">
+          Solo se admiten letras
         </small>
-      </div> -->
+        <small *ngIf="firstName.touched && firstName.valid" id="firstNameHelp" class="text-info">
+          Campo correcto
+        </small>
+
+      </div>
 
       <!-- First  Surname-->
       <div class="form-group p-3">
@@ -44,35 +54,32 @@
           Primer apellido:
         </label>
         <input
-          id="firstSurname"
-          class="form-control"
+
+          ngModel
+          #firstSurname="ngModel"
           name="firstSurname"
           type="text"
+
+          id="firstSurname"
+          [class.is-wrong]="firstSurname.invalid && firstSurname.touched"
+          class="form-control is-wrong"
           placeholder="Primer apellido"
           aria-describedby="firstSurnameHelp"
+
+          minlength="2"
+          pattern="[A-Za-z]+"
         />
-        <small id="firstSurnameHelp" class="">
+
+        <small *ngIf="!firstSurname.touched" id="firstSurnameHelp" class="">
           Ingresa el primer apellido
         </small>
-      </div>
-
-      <!-- Second Surname -->
-      <!-- <div class="form-group p-3">
-        <label for="secondSurname">
-          Segundo apellido:
-        </label>
-        <input
-          id="secondSurname"
-          class="form-control"
-          name="secondSurname"
-          type="text"
-          placeholder="Segundo apellido"
-          aria-describedby="secondSurnameHelp"
-        />
-        <small id="secondSurnameHelp" class="">
-          Ingresa tu segundo apellido
+        <small *ngIf="firstSurname.touched && firstSurname.invalid" id="firstSurnameHelp" class="text-danger">
+          Solo se admiten letras
         </small>
-      </div> -->
+        <small *ngIf="firstSurname.touched && firstSurname.valid" id="firstSurnameHelp" class="text-info">
+          Campo correcto
+        </small>
+      </div>
     </div>
 
     <div class="d-flex flex-column flex-md-row">
@@ -82,15 +89,29 @@
           Telefono:
         </label>
         <input
-          id="cellPhone"
-          class="form-control"
+
+          ngModel
+          #cellPhone="ngModel"
+          type="number"
           name="cellPhone"
-          type="text"
+
+          id="cellPhone"
+          [class.is-wrong]="cellPhone.invalid && cellPhone.touched"
+          class="form-control"
           placeholder="0000"
           aria-describedby="cellPhoneHelp"
+
+          required
+          pattern="[0-9]{7,8}"
         />
-        <small id="cellPhoneHelp" class="">
+        <small *ngIf="!cellPhone.touched" id="cellPhoneHelp" class="">
           Ingresa un numero de telefono
+        </small>
+        <small *ngIf="cellPhone.touched && cellPhone.invalid" id="cellPhoneHelp" class="text-danger">
+          Solo se admiten numeros de 7-8 digitos
+        </small>
+        <small *ngIf="cellPhone.touched && cellPhone.valid" id="cellPhoneHelp" class="text-info">
+          Campo correcto
         </small>
       </div>
       
@@ -100,11 +121,19 @@
           Correo Electrónico
         </label>
         <input
-          id="email"
+
+          ngModel
+          #email="ngModel"
+          name="email"
           type="email"
+
+          id="email"
           class="form-control"
+          [class.is-wrong]="email.invalid && email.touched"
           aria-describedby="emailHelp"
           placeholder="Example@example.com"
+
+          pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
         />
         <small id="emailHelp" class="">
           Ingresa un correo electrónico.
@@ -114,9 +143,10 @@
 
     <!-- send form -->
     <div class="text-center mt-4">
-      <button class="btn draw-border mt-2 mt-sm-0" type="submit">
+      <button class="btn draw-border mt-2 mt-sm-0" type="submit" [disabled]="firstName.invalid || cellPhone.invalid">
         GUARDAR
       </button>
     </div>
   </form>
+
 </div>

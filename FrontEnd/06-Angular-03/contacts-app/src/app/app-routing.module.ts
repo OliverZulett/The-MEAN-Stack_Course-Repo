@@ -8,7 +8,7 @@ import { CreateContactComponent } from './pages/create-contact/create-contact.co
 
 const routes: Routes = [
   { path: 'Lista', component: ContactListComponent },
-  { path: 'Contacto', component: ContactComponent },
+  { path: 'Contacto/:id', component: ContactComponent },
   { path: 'Editar', component: EditContactComponent },
   { path: 'Crear', component: CreateContactComponent },
   { path: '', pathMatch: 'full', redirectTo: 'Lista' },

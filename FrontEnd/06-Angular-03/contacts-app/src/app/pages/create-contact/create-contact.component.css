@@ -21,6 +21,11 @@ input {
     font-weight: 100;
 }
 
+.is-wrong {
+    border-bottom: 4px solid #dc3545;
+    color: #dc3545;
+}
+
 /* Responsive */
 @media (max-width: 575px) {
     .form-group {

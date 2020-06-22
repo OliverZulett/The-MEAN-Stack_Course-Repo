@@ -8,4 +8,4 @@ En la carpeta llamada _BackEnd_ podras encontrar todo lo avanzado en la primera 
 
 En la carpeta llamada _FrontEnd_ podras encontrar todo lo que iremos avanzando en la segunda parte del curso, en la que crearemos una APP desarrollada con [Angular](https://angular.io/).
 
-***Nos vemoe en clase***
+**Nos vemos en clase**

@@ -1,0 +1,76 @@
+.contact-card {
+  background-color: var(--first_color);
+  width: 250px;
+  border-radius: 12px;
+  transition: box-shadow 0.7s ease-in-out, background-color 0.5s ease-in-out;
+}
+.contact-card:hover {
+  box-shadow: 0.5em 0.5em var(--first_color);
+  background-color: var(--fifth_color);
+}
+.contact-card:hover .contact-info {
+  color: var(--first_color);
+}
+.contact-card:hover .contact-image img {
+  border: 2px solid var(--first_color);
+}
+.contact-card:hover .contact-links ul li a {
+  color: var(--first_color);
+}
+.contact-card:hover .draw-border {
+  box-shadow: inset 0 0 0 4px var(--first_color);
+  color: var(--first_color);
+}
+.contact-image img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 2px solid var(--third_color);
+  padding: 10px;
+}
+.contact-info {
+  color: var(--fifth_color);
+}
+.contact-links ul {
+  list-style: none;
+}
+.contact-links ul li {
+  font-size: 1.5em;
+}
+.contact-links ul li a {
+  text-decoration: none;
+  color: var(--fifth_color);
+  transition: text-shadow 0.4s ease-in-out;
+}
+ul li a{
+  text-decoration: none;
+  color: var(--fifth_color);
+  transition: text-shadow 0.4s ease-in-out;
+}
+ul li a:hover{
+  text-shadow: -0.08em 0.08em var(--second_color);
+}
+.draw-border {
+  box-shadow: inset 0 0 0 4px var(--fifth_color);
+  color: var(--fifth_color);
+}
+.draw-border:hover {
+  color: var(--third_color);
+}
+.draw-border:hover::before,
+.draw-border:hover::after {
+  border-color: var(--third_color);
+}
+
+.btn{
+  font: 600 1rem "Teko", sans-serif;
+}
+
+.btn:focus {
+  outline: 2px dotted var(--fifth_color);
+}
+
+.btn:hover {
+  box-shadow: 0.15em 0.15em var(--first_color);
+}

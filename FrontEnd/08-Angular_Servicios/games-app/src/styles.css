@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+h1, h2, h3, h4 {
+    font-family: 'Anton', sans-serif;
+}
+
+p, a, span {
+    font-family: 'Roboto', sans-serif;
+}

@@ -1,12 +1,11 @@
 <h1>RxJs</h1>
 
-<p>{{countryData | json}}</p>
+<h3>Datos de Bolivia</h3>
 
-<br>
+<!-- <p>{{ bolivia | json }}</p> -->
 
-<p *ngFor="let countryName of countriesNames"> {{countryName | json}} </p>
+<p> nombre: {{bolivia.name}} </p>
+<p> poblacion: {{bolivia.population}} </p>
+<p> capital: {{bolivia.capital}} </p>
 
-<div *ngFor="let countryName of countriesNames">
-  <span>{{countryName.name}}</span>
-  <img [src]="countryName.flag" alt="countryName.nam" srcset="" height="50px" width="70px">
-</div>
+<img [src]=" bolivia.flag " alt="" srcset="">

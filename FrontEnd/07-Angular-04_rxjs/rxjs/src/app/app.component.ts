@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { of } from 'rxjs/internal/observable/of';
+import { Observable, of, Observer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { pipe, Observable } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,100 +10,100 @@ import { map, filter } from 'rxjs/operators';
 })
 export class AppComponent {
 
-  countryData: any;
-  countriesNames: Array<any> = [];
+  bolivia: any = [];
 
-  constructor(private http: HttpClient) {
-    this.buildObservable();
-    this.buildObserver();
-    this.countryPetition();
-    this.getBolivia();
-    this.buildCountryNames();
+  constructor( private http: HttpClient ) {
+
+    // this.buildObservable();
+    // this.buildObserver();
+
+    this.getAllCountries();
+
+    // this.searchContriesByName('Bo');
+
+    // this.searchCountrieByLetters('bo', 'Bolivia');
+
+    this.searchBolivia();
+
+  }
+
+  private buildObserver(): void {
+    const myObservable = of( 1, 2, 3 );
+
+    const myObserver: Observer<any> = {
+      next: (datoRecibido: string) => console.log(`El observador ha recibido el dato: ${datoRecibido}`),
+      error: (error: string) => console.log(`El observador ha recibido un error: ${error}`),
+      complete: () => console.log(`El observador ha recibido la notificacion de finalizacion`)
+    };
+
+    // myObservable.subscribe(myObserver);
+
+    myObservable.subscribe(
+      datoRecibido => console.log(`El observador ha recibido el dato: ${datoRecibido}`),
+      (error: string) => console.log(`El observador ha recibido un error: ${error}`),
+      () => console.log(`El observador ha recibido la notificacion de finalizacion`)
+    );
   }
 
   private buildObservable() {
-
-    function sequenceSubscriber(observer: { next: (arg0: number) => void; complete: () => void; }) {
+    function secuencia(
+      observer: {
+        next: (arg0: number) => void,
+        complete: () => void;
+      }
+    ) {
       observer.next(1);
       observer.next(2);
       observer.next(3);
       observer.complete();
-      return { unsubscribe() { } };
+      return { unsubscribe() { }};
     }
 
-    // Create a new Observable that will deliver the above sequence
-    const sequence = new Observable(sequenceSubscriber);
+    const dataSequence = new Observable(secuencia);
 
-    // execute the Observable and print the result of each notification
-    sequence.subscribe({
-      next(num) { console.log(num); },
-      complete() { console.log('Finished sequence'); }
-    });
+    dataSequence
+      .subscribe({
+        next(num) { console.log(num); },
+        complete() { console.log('Secuencia finalizada'); }
+      });
   }
 
-  private buildObserver() {
-    // Crear un observable de tres vvalores
-    const myObservable = of(1, 2, 3);
-
-    //  Crear un observador
-    const myObserver = {
-      next: (x: string) => console.log('El Observer recibe el siguiente parametro: ' + x),
-      error: (err: string) => console.error('El Observer tiene un error: ' + err),
-      complete: () => console.log('El Observer recibio una notificacion de finalizacion'),
-    };
-
-    // Subscripcion al observador
-    myObservable.subscribe(myObserver); // => EL OBSERVABLE SOLO EMPIEZA A PUBLICAR CUANDO UN OBSERVADOR SE SUBSCRIBE A EL
-
-    // Subscripcion al observador con callbacks
-    myObservable.subscribe( // => EL METODO SUBSCRIBE ACEPTA CALLBACKS PARA MANEJAR EL NEXT, ERROR, COMPLETE
-      x => console.log('El Observer recibe el siguiente parametro: ' + x),
-      err => console.error('El Observer tiene un error: ' + err),
-      () => console.log('El Observer recibio una notificacion de finalizacion'),
-    );
-
-  }
-
-  private countryPetition() {
-    this.http.get('https://restcountries.eu/rest/v2/name/Bo')
+  private getAllCountries() {
+    this.http.get('https://restcountries.eu/rest/v2/all')
       .subscribe(
-        x => console.log(x),
-        err => console.error('Hay un error al realizar la peticion: ' + err),
-        () => console.log('Termino la peticion'),
+        datosRecibidos => console.log(datosRecibidos),
+        error => console.log('Hubo un error al recibir los datos'),
+        () => console.log('Se ha terminado de recibir los datos')
       );
   }
 
-  private filterPetition(countryName: string): Observable<any> {
-    return this.http.get('https://restcountries.eu/rest/v2/name/B')
+  private searchContriesByName( param: string ) {
+    this.http.get(`https://restcountries.eu/rest/v2/name/${param}`)
+      .subscribe(
+        datosRecibidos => console.log(datosRecibidos),
+        error => console.log('Hubo un error al recibir los datos: ' + error),
+        () => console.log('Se ha terminado de buscar los datos')
+      );
+  }
+
+  private searchCountrieByLetters( letters: string, countryName: string ): Observable<any> {
+    return this.http.get(`https://restcountries.eu/rest/v2/name/${letters}`)
       .pipe(
         map(
-          (countryArray: Array<any>) => countryArray.filter(country => country.name.includes(countryName))
+          (countryArray: Array<any>) => countryArray.filter( country => country.name.includes(countryName))
         )
       );
   }
 
-  private getBolivia(): void {
-    this.filterPetition('Bolivia')
+  private searchBolivia() {
+    this.searchCountrieByLetters('bo', 'Bolivia')
       .subscribe(
         bolivia => {
-          this.countryData = bolivia[0];
-          console.log(bolivia);
+           console.log(bolivia);
+           this.bolivia = bolivia[0];
         },
-        err => console.error('Hay un error al realizar la peticion: ' + err),
-        () => console.log('Termino la peticion'),
-      );
-  }
-
-  private buildCountryNames(): void {
-    this.http.get('https://restcountries.eu/rest/v2/name/Bo')
-      .subscribe(
-        (countryArray: Array<any>) => countryArray.forEach( country => {
-          const name = country.name;
-          const flag = country.flag;
-          this.countriesNames.push({name, flag});
-        }),
-        err => console.error('Hay un error al realizar la peticion: ' + err),
-        () => console.log('Termino la peticion')
+        error => console.log('Hubo un error al recibir los datos: ' + error),
+        () => console.log('Se ha terminado de buscar los datos')
       );
   }
 

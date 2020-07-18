@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RawgService } from '../../services/rawg.service';
 
 @Component({
   selector: 'app-game',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rawgService: RawgService) { }
 
   ngOnInit(): void {
+    this.loadGame();
+  }
+
+  private loadGame() {
+    this.rawgService.getGame()
+      .subscribe();
   }
 
 }

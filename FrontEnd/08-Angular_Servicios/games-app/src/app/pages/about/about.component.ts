@@ -9,6 +9,7 @@ import { RawgService } from 'src/app/services/rawg.service';
 export class AboutComponent implements OnInit {
 
   backGroundImage: string;
+  uri = '?2010-01-01,2019-12-31&ordering=-ratings_count';
 
   constructor( private rawgService: RawgService ) {
     this.backGroundImage = '../assets/defaultBackground.jpg';
@@ -19,14 +20,12 @@ export class AboutComponent implements OnInit {
   }
 
   private showPopularsBackground(): void {
-    this.rawgService.getPopularsBackground()
+    this.rawgService.getRandomImage(this.uri)
       .subscribe(
-        (backgroundGame: string) => {
-          this.backGroundImage = backgroundGame;
-          console.log(this.backGroundImage);
-        },
-        error => console.log('Hubo un error al recibir los datos'),
-        () => console.log('Se ha terminado de recibir los datos')
+        (image: string) => {
+          this.backGroundImage = image;
+          console.log('backGroundImage: ' + this.backGroundImage);
+        }
       );
   }
 

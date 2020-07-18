@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { IGameCard } from '../models/card-model.interface';
+import { GameCard } from '../models/card-model.model';
+import { environment } from 'src/environments/environment';
+import { IGame } from '../models/game.interface';
+import { Game } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +19,8 @@ export class RawgService {
     console.log('hello wordl!');
   }
 
-  public getPopularGamesIn2019() {
-    this.http.get('https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added')
-      .subscribe(
-        datosRecibidos => console.log(datosRecibidos),
-        error => console.log('Hubo un error al recibir los datos'),
-        () => console.log('Se ha terminado de recibir los datos')
-      );
-  }
-
-  public getPopularsBackground(): Observable<any> {
-    return this.makePetition()
+  public getRandomImage(uri: string): Observable<string> {
+    return this.makePetition(uri)
       .pipe(
         map(
           (gamesRecieved: any) => {
@@ -36,19 +32,40 @@ export class RawgService {
       );
   }
 
-  public getPopularsGames(): Observable<any> {
-    return this.makePetition()
+  public getCardsContent(uri: string): Observable<IGameCard[]> {
+    return this.makePetition(uri)
       .pipe(
         map(
           (games: any) => {
-            return games.results;
+            let gamesCards: IGameCard[] = [];
+            gamesCards = (games.results).map( (game: any) => {
+              const gameCard: IGameCard = new GameCard();
+              gameCard.id = game.id;
+              gameCard.name = game.name;
+              gameCard.rating = game.rating;
+              gameCard.background = game.background_image;
+              return gameCard;
+            });
+            return gamesCards;
           }
         )
       );
   }
 
-  private makePetition(): Observable<any> {
-    return this.http.get('https://api.rawg.io/api/games?dates=2019-01-01,2020-05-29&ordering=-added');
+  public getGame(): Observable<IGame> {
+    const uri = '/50738';
+    return this.makePetition(uri)
+      .pipe(
+        map((game: any) => {
+          const game: IGame = new Game();
+          console.log(game);
+          return game;
+        })
+      );
+  }
+
+  private makePetition(filter: string): Observable<any> {
+    return this.http.get(`${environment.API_URL}${filter}`);
   }
 
 }

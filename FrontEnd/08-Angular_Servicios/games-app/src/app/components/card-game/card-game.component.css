@@ -17,6 +17,10 @@
     transition-delay: 0.025s;
 }
 
+.navbar-brand {
+    color: #05d9e8;
+}
+
 .game-card .content {
     width: 95%;
     height: 90%;
@@ -33,19 +37,19 @@
 }
 
 .game-card .content p{
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .game-card .btn {
-    background-color: black;
-    color: white;
+    background-color: #05d9e8;
+    color: black;
     font-size: 1em;
     border-radius: 0px;
     font-family: 'Anton', sans-serif;
 }
 
 .game-card:hover > img {
-    box-shadow: 15px 20px black;
+    box-shadow: 15px 20px #05d9e8;
     border-radius: 12px;
     border: none;
 }

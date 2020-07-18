@@ -1,5 +1,5 @@
-.content {
-  min-width: 100vw;
+.single {
+  /* min-width: 100vw; */
   min-height: 100vh;
   background-color: black;
   background-position: center;
